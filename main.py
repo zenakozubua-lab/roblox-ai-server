@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify
 import anthropic
+import os
 
 app = Flask(__name__)
-client = anthropic.Anthropic(api_key="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")
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 @app.route('/ai', methods=['POST'])
 def ai():
